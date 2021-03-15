@@ -51,18 +51,14 @@ jobs:
         while true
           do \
             sleep 10
-            docker logs webui 2>& 1 | grep 'WEBUI running on port' && break
+            docker logs rng 2>& 1 | grep 'Running on' && break
           done
         while true
           do \
             sleep 10
             docker logs webui 2>& 1 | grep 'WEBUI running on port' && break
           done
-        
-        for app in hasher redis rng worker 
-          do \
-            docker logs ${app}
-          done
+        docker logs worker        
   swarm:
     runs-on: ubuntu-18.04
     steps:
