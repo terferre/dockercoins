@@ -58,7 +58,11 @@ jobs:
             sleep 10
             docker logs webui 2>& 1 | grep 'WEBUI running on port' && break
           done
-        docker logs worker        
+        while true
+          do \
+            sleep 10
+            docker logs worker 2>& 1 | grep 'Coin found' && break
+          done
   swarm:
     runs-on: ubuntu-18.04
     steps:
