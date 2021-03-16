@@ -115,7 +115,7 @@ services:
     networks:
       - redis
       - webui
-  worker:  hasher:
+  worker:
     deploy: 
       mode: replicated
       placement: 
@@ -129,18 +129,18 @@ services:
         reservations:
           cpus: "0.1"
           memory: 100M
-    healthcheck:
-      interval: 10s
-      retries: 3
-      start_period: 30s
-      test: netstat -nt | grep ESTABLISHED | grep -q 6379
-      timeout: 1s
-    image: terferre/dockercoins:latest-worker
-    networks:
-      - hasher
-      - redis
-      - rng
-      - worker
+      healthcheck:
+        interval: 10s
+        retries: 3
+        start_period: 30s
+        test: netstat -nt | grep ESTABLISHED | grep -q 6379
+        timeout: 1s
+      image: terferre/dockercoins:latest-worker
+      networks:
+        - hasher
+        - redis
+        - rng
+        - worker
 version: '3.8'      
 volumes: 
   redis:
