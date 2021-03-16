@@ -14,7 +14,7 @@ services:
     deploy: 
       mode: replicated
       placement: 
-        constrains: 
+        constraints: 
           - node.role == worker
       replicas: 1
       resources: 
@@ -40,7 +40,7 @@ services:
     deploy: 
       mode: replicated
       placement: 
-        constrains: 
+        constraints: 
           - node.role == worker
       replicas: 1
       resources: 
@@ -69,7 +69,7 @@ services:
       #DaemonSet, es una app q se despliega 1vez por worker
       mode: global
       placement: 
-        constrains: 
+        constraints: 
           - node.role == worker
       resources: 
         limits:
@@ -94,7 +94,7 @@ services:
       #DaemonSet, es una app q se despliega 1vez por worker
       mode: replicated
       placement: 
-        constrains: 
+        constraints: 
           - node.role == worker
       resources: 
         limits:
@@ -119,7 +119,7 @@ services:
     deploy: 
       mode: replicated
       placement: 
-        constrains: 
+        constraints: 
           - node.role == worker
       replicas: 1
       resources: 
