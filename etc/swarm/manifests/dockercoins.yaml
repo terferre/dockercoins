@@ -86,7 +86,8 @@ services:
       start_period: 30s
       test: wget -q --spider localhost:8080
       timeout: 1s
-    image: terferre/dockercoins:latest-hasher
+    image: terferre/dockercoins:latest-rng
+    networks:
       - rng
     # volums escribe en disco, p openshift
   webui:
